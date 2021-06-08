@@ -76,7 +76,7 @@
 <br />
 
 ## 👨‍💻 TodoItem: JavaScript vs TypeScript
-- 🔍 JavaScript
+### 🔍 JavaScript
 ```js
   class TodoItem {
     constructor(id, task, complete) {
@@ -95,7 +95,7 @@
 
 <br />
 
-- 🔍 TypeScript
+### 🔍 TypeScript
 - 타입스크립트에서는 타입을 지정해주는거 이외에 `접근 지정자(private, public, protected)` 등을 지정할 수 있다.
 - 생성자(contructor)안에서 `접근 지정자`를 지정하면 따로 프로퍼티 정의할 필요 없이 프로퍼티로 정의된다.
 - 함수의 리턴 값이 없으면 반환 값 타입을 `void`로 지정해야 한다.
