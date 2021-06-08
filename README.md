@@ -1,5 +1,5 @@
 # 💻 TypeScript-ToDoList
-타입스크립트로 만들어보는 ToDolist
+타입스크립트로 만들어보는 ToDoList 📑
 
 <br />
 
@@ -72,5 +72,49 @@
 ```
 - concurrently는 동시에 여러 명령어를 실행하기 위해 사용된다.
 - nodemon: 실시간으로 수정사항을 반영해준다.
+
+<br />
+
+## 👨‍💻 TodoItem: JavaScript vs TypeScript
+- 🔍 JavaScript
+```js
+  class TodoItem {
+    constructor(id, task, complete) {
+      this.id = id;
+      this.task = task;
+      this.complete = complete;
+    }
+
+    printDetails() {
+      console.log(
+        `${this.id} \t ${this.task} \t ${this.complete ? "(complete)" : ""}`
+      );
+    }
+  }
+```
+
+<br />
+
+- 🔍 TypeScript
+- 타입스크립트에서는 타입을 지정해주는거 이외에 `접근 지정자(private, public, protected)` 등을 지정할 수 있다.
+- 생성자(contructor)안에서 `접근 지정자`를 지정하면 따로 프로퍼티 정의할 필요 없이 프로퍼티로 정의된다.
+- 함수의 리턴 값이 없으면 반환 값 타입을 `void`로 지정해야 한다.
+```ts
+  class TodoItem {
+    constructor(public id: number, public task: string, public complete: boolean) {
+      this.id = id;
+      this.task = task;
+      this.complete = complete;
+    }
+
+    printDetails(): void {
+      console.log(
+        `${this.id} \t ${this.task} \t ${this.complete ? "(complete)" : ""}`
+      );
+    }
+  }
+
+  export default TodoItem;
+```
 
 <br />
