@@ -1,5 +1,4 @@
 class TodoItem {
-  //생성자에 받아온 값들로 this.로 해서 정의하면 프로퍼티로 정의된다.
   constructor(id, task, complete) {
     this.id = id;
     this.task = task;
