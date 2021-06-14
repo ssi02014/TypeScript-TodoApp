@@ -22,9 +22,8 @@ class TodoCollection {
     }
     markComplete(id, complete) {
         const todoItem = this.getTodoById(id);
-        if (todoItem) {
+        if (todoItem)
             todoItem.complete = complete;
-        }
     }
 }
 exports.default = TodoCollection;

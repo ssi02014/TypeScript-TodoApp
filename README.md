@@ -118,3 +118,42 @@
 ```
 
 <br />
+
+## 👨‍💻 TodoCollection
+### 🔍 getTodoById 메서드
+- 함수 반환 값의 대한 타입을 `TodoItem | undefined`이런 식으로 지정하면 반환 값의 타입이 TodoItem 또는 undefined라는 의미
+```ts
+  import TodoItem from "./TodoItem";
+
+  class TodoCollection {
+    ...
+    getTodoById(id: number): TodoItem | undefined {
+      return this.todoItems.find((item) => item.id === id);
+    }
+    ...
+  }
+
+  export default TodoCollection;
+```
+
+<br />
+
+### 🏃‍♂️ Type Annotations - Tuple
+- 튜플을 이용하면 배열의 요소 수와 각 요소에 대한 타입을 지정할 수 있다.
+- 튜플은 정해진 길에아 맞지 않으면 에러가 발생. 하지만 `push()`는 튜플의 규칙을 무시함.
+- 서로 다른 타입의 요소를 갖는 배열은 순서에 상관없이 데이터를 넣을 수 있지만, 반면 튜플은 정해진 순서에 맞게 넣어야 함
+- 튜플 타입은 배열보다 저장되는 요소에 순서와 수에 제약을 두고자 할 때 사용
+```ts
+  const tuples: [string, number] = ['Jeon', 27]; //튜플
+  const arr: (string | number)[] = ['Jeon', 27, 'MinJae', 26]; //배열
+
+  tuples[0] = 'Park' // OK
+  tuples[0] = 50 // Error: Type '50' is not assignable to type 'string'.ts(2322)
+
+  tuples[1] = 50 // OK
+  
+  tuples.push(100);
+  console.log(tuples); // ['Park', 50, 100] 
+```
+
+<br />

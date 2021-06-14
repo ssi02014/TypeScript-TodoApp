@@ -21,9 +21,7 @@ class TodoCollection {
   markComplete(id: number, complete: boolean): void {
     const todoItem = this.getTodoById(id);
 
-    if (todoItem) {
-      todoItem.complete = complete;
-    }
+    if (todoItem) todoItem.complete = complete;
   }
 }
 
