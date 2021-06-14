@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Basic Options */
-    "target": "es5",  
+    "target": "es6",  
     "module": "commonjs",
     "outDir": "./build",  //빌드 된 이후 자바스크립트 파일이 저장 될 장소
     "rootDir": "./src",   //타입스크립트 소스코드가 있는 저장소
