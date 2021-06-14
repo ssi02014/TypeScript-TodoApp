@@ -10,15 +10,17 @@ class TodoCollection {
   }
 
   addTodo(task: string): number {
-    if (this.getTodoById(this.nextId)) this.nextId++;
-    else this.todoItems.push(new TodoItem(this.nextId, task));
+    while (this.getTodoById(this.nextId)) {
+      this.nextId++;
+    }
+    this.todoItems.push(new TodoItem(this.nextId, task));
 
     return this.nextId;
   }
 
   markComplete(id: number, complete: boolean): void {
     const todoItem = this.getTodoById(id);
-    
+
     if (todoItem) {
       todoItem.complete = complete;
     }
