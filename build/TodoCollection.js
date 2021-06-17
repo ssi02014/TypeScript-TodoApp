@@ -7,18 +7,31 @@ const TodoItem_1 = __importDefault(require("./TodoItem"));
 class TodoCollection {
     constructor(userName, todoItems = []) {
         this.userName = userName;
-        this.todoItems = todoItems;
         this.nextId = 1;
+        this.itemMap = new Map();
+        todoItems.forEach((item) => this.itemMap.set(item.id, item));
     }
     getTodoById(id) {
-        return this.todoItems.find((item) => item.id === id);
+        return this.itemMap.get(id);
     }
     addTodo(task) {
         while (this.getTodoById(this.nextId)) {
             this.nextId++;
         }
-        this.todoItems.push(new TodoItem_1.default(this.nextId, task));
+        this.itemMap.set(this.nextId, new TodoItem_1.default(this.nextId, task));
         return this.nextId;
+    }
+    //includeComplete - true : 모든 할일 목록
+    //includeComplete - false : 완료 목록은 제외한 할일 목록
+    getTodoItems(incluteComplete) {
+        return [...this.itemMap.values()].filter((item) => incluteComplete || !item.complete);
+    }
+    removeComplete() {
+        this.itemMap.forEach((item) => {
+            if (item.complete) {
+                this.itemMap.delete(item.id);
+            }
+        });
     }
     markComplete(id, complete) {
         const todoItem = this.getTodoById(id);

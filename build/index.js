@@ -11,7 +11,8 @@ const myTodoCollection = new TodoCollection_1.default("My Todo List", sampleTodo
 myTodoCollection.addTodo("JavaScript 학습하기");
 myTodoCollection.addTodo("정연재 만나기");
 myTodoCollection.markComplete(2, true);
-myTodoCollection.todoItems.forEach(item => {
+myTodoCollection.removeComplete();
+myTodoCollection.getTodoItems(true).forEach(item => {
     //console.log(item) → TodoItem { id: 1, task: '장보기', complete: true }
     item.printDetails();
 });
