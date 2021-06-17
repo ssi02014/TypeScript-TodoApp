@@ -170,8 +170,7 @@
 
 <br />
 
-
-## 🏃‍♂️ Generics
+### 🏃‍♂️ Generics
 - 재사용 가능한 클래스, 함수를 만들기 위해 다양한 타입에서 사용 가능 하도록 하는 것이 `제네릭`이다.
 - 제네릭을 이용하면 모든 타입의 객체를 다루면서 객체 타입의 무결성을 유지할 수 있다.
 - 제네릭을 통해 클래스나 함수 내부에서 사용되는 특정 데이터의 타입을 외부에서 지정한다.
@@ -206,6 +205,23 @@ class Box<Orange> {
 }
 ```
 - 결과적으로 T라고 지정된 타입들은 모두 Orange 타입이 된다.
+
+<br />
+
+### 🏃‍♂️ type alias
+- 새로운 타입을 정의하는 방법은 type alias와 interface를 정의하는 두 가지 방식이 있다.
+- type alias를 이용하면 객체, 공용체(Union), 튜플(Tuple), 기본 타입에 타입의 별칭을 생성할 수 있다.
+- type alias도 제네릭의 사용이 가능하며, 스스로 참조하는 것도 가능하다.
+```ts
+type MyNumber = number;
+const n: MyNumber = 10;
+
+type Container<T> = { value: T };
+
+type User = { name: string, age: number };
+const testUser: User = { name:"Kim", age:20 };
+//=== const testUser: { name: string, age: number } = { ... }
+```
 
 <br />
 
