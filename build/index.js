@@ -7,6 +7,13 @@ const TodoItem_1 = __importDefault(require("./TodoItem"));
 const data_1 = require("./data");
 const TodoCollection_1 = __importDefault(require("./TodoCollection"));
 const sampleTodos = data_1.data.map(item => new TodoItem_1.default(item.id, item.task, item.complete));
+/* sampleTodos
+  [
+    TodoItem { id: 1, task: '장보기', complete: true },
+    TodoItem { id: 2, task: 'TS 학습하기', complete: false },
+    ...
+  ]
+*/
 const myTodoCollection = new TodoCollection_1.default("My Todo List", sampleTodos);
 myTodoCollection.addTodo("JavaScript 학습하기");
 myTodoCollection.addTodo("정연재 만나기");

@@ -4,7 +4,14 @@ import TodoCollection from './TodoCollection';
 
 const sampleTodos: TodoItem[] = data.map(
   item => new TodoItem(item.id, item.task, item.complete)
-);
+); 
+/* sampleTodos
+  [
+    TodoItem { id: 1, task: '장보기', complete: true },
+    TodoItem { id: 2, task: 'TS 학습하기', complete: false },  
+    ...
+  ]
+*/
 
 const myTodoCollection = new TodoCollection("My Todo List", sampleTodos);
 
