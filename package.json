@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/ssi02014/TypeScript-TodoList#readme",
   "dependencies": {
+    "@types/inquirer": "^7.3.1",
     "concurrently": "^6.2.0",
+    "inquirer": "^8.1.1",
     "nodemon": "^2.0.7"
   }
 }

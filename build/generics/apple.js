@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Apple {
     constructor(brix = 0) {
         this.brix = brix;
@@ -11,3 +12,4 @@ class Apple {
         return this.brix;
     }
 }
+exports.default = Apple;
