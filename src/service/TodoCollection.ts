@@ -1,4 +1,4 @@
-import { ItemCounts } from "../model/itemCounts";
+import { ItemCounts } from "../model/ItemCounts";
 import TodoItem from "../model/TodoItem";
 
 class TodoCollection {

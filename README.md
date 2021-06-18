@@ -225,3 +225,83 @@ const testUser: User = { name:"Kim", age:20 };
 
 <br />
 
+## 👨‍💻 TodoConsole
+### 🏃‍♂️ inquirer 라이브러리 설치
+- inquirer: Interactive user prompt를 구현을 위한 라이브러리로 루비, 파이썬, 자바스크립트 등 여러가지 언어를 지원하고 일반적인 사용자 입력 구현, 체크박스, 라디오 버튼 등 구현이 편리하다.
+- 단, TypeScript에서는 @types/inquirer을 추가적으로 설치해야 한다.
+```
+  npm i inquirer @types/inquirer
+```
+
+<br />
+
+### 🏃‍♂️ inquirer 사용 예제
+- src/model/TodoConsole.ts
+```ts
+  import * as inquirer from 'inquirer';
+
+  class TodoConsole {
+    ...
+    promptUser(): void {
+      console.clear();
+      
+      this.displayTodoList();
+
+      inquirer.prompt({
+        type: 'list',
+        name: 'command',
+        message: 'Choose option',
+        choices: Object.values(Commands),
+      }).then((answers) => {
+        if(answers['command'] !== Commands.Quit) {
+          this.promptUser();
+        }
+      });
+    }
+  }
+
+  export default TodoConsole;
+```
+
+<br />
+
+- src/model/Command.ts
+```ts
+  export enum Commands {
+    Quit = 'Quit',
+    Add = 'Add',
+  }
+```
+
+<br />
+
+- 주의할 점은 nodemon, concurrently을 사용해서 npm start를 하면 약간의 오류가 있음
+- node build/index.js 로 빌드 하고 실행해야 된다.
+
+<br />
+
+### 🏃‍♂️ enum
+- 열거형(enum) 타입은 `상수`들을 관리하기 위한 객체로 상수의 집합을 정의한다.
+- 일반 객체는 속성의 변경을 허용하지만 열거형은 속성의 변경을 허용하지 않는다.
+- 열거형의 속성은 기본적으로 `숫자`, `문자열`만 허용한다.
+- 열거형을 이용하면 상수의 수를 제한할 수 있으며 코드의 가독성을 높일 수 있다.
+```ts
+  const korean = 'ko';
+  const english = 'en';
+  const japanese = 'ja';
+
+  type LanguageCode = 'ko' | 'en' | 'ja';
+
+  const code: LanguageCode = korean;
+```
+- 위 코드를 수정하면
+```ts
+enum LanguageCode {
+  korean = 'ko',
+  english = 'en',
+  japanese = 'ja',
+}
+
+const code: LanguageCode = LanguageCode.korean;
+```
+<br />

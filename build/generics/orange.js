@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Orange {
     constructor(brix = 0) {
         this.brix = brix;
@@ -11,3 +12,4 @@ class Orange {
         return this.brix;
     }
 }
+exports.default = Orange;
