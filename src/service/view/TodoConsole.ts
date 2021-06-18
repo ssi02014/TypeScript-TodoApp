@@ -1,8 +1,8 @@
 import * as inquirer from 'inquirer';
-import { data } from '../data';
-import { Commands } from '../model/Command';
-import TodoItem from '../model/TodoItem';
-import TodoCollection from '../service/TodoCollection';
+import { data } from '../../data';
+import { Commands } from '../../model/Command';
+import TodoItem from '../../model/TodoItem';
+import TodoCollection from '../TodoCollection';
 
 class TodoConsole {
   private todoCollection: TodoCollection;

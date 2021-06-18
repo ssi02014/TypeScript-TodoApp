@@ -25,6 +25,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //   //console.log(item) → TodoItem { id: 1, task: '장보기', complete: true }
 //   item.printDetails()
 // });
-const TodoConsole_1 = __importDefault(require("./view/TodoConsole"));
+const TodoConsole_1 = __importDefault(require("./service/view/TodoConsole"));
 const todoConsole = new TodoConsole_1.default();
 todoConsole.promptUser();
