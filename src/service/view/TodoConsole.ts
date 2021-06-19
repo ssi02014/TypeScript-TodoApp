@@ -6,8 +6,10 @@ import TodoCollection from '../TodoCollection';
 
 class TodoConsole {
   private todoCollection: TodoCollection;
+  private showCompleted: boolean;
 
   constructor() {
+    this.showCompleted = true;
     const sampleTodos: TodoItem[] = data.map(
       (item) => new TodoItem(item.id, item.task, item.complete)
     );
@@ -21,7 +23,7 @@ class TodoConsole {
       `(${this.todoCollection.getItemCounts().incomplete} items todo)`
     );
 
-    this.todoCollection.getTodoItems(true).forEach(item => item.printDetails());
+    this.todoCollection.getTodoItems(this.showCompleted).forEach(item => item.printDetails());
   }
 
   promptUser(): void {
@@ -35,8 +37,11 @@ class TodoConsole {
       message: 'Choose option',
       choices: Object.values(Commands),
     }).then((answers) => {
-      if(answers['command'] !== Commands.Quit) {
-        this.promptUser();
+      switch(answers["command"]) {
+        case Commands.Toggle:
+          this.showCompleted = !this.showCompleted;
+          this.promptUser();
+          break;
       }
     });
   }
