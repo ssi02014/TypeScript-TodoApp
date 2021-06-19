@@ -42,8 +42,25 @@ class TodoConsole {
           this.showCompleted = !this.showCompleted;
           this.promptUser();
           break;
+        case Commands.Add:
+          this.promptAdd();
+          break;
       }
     });
+  }
+
+  promptAdd(): void {
+    console.clear();
+    inquirer.prompt({
+      type: "input",
+      name: "add",
+      message: "Enter task :"
+    }).then((answers) => {
+      if (answers["add"] !== "") {
+        this.todoCollection.addTodo(answers["add"]);
+      }
+      this.promptUser();
+    })
   }
 }
 
