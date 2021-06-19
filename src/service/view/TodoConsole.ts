@@ -49,6 +49,13 @@ class TodoConsole {
           this.todoCollection.removeComplete();
           this.promptUser();
           break;
+        case Commands.Complete:
+          if(this.todoCollection.getItemCounts().incomplete > 0) {
+            this.promptComplete();
+          } else {
+            this.promptUser();
+          }
+          break;
       }
     });
   }
@@ -63,6 +70,30 @@ class TodoConsole {
       if (answers["add"] !== "") {
         this.todoCollection.addTodo(answers["add"]);
       }
+      this.promptUser();
+    });
+  }
+
+  promptComplete(): void {
+    console.clear();
+    inquirer.prompt({
+      type: "checkbox",
+      name: "complete",
+      message: "Mark Tasks Complete",
+      choices: this.todoCollection.getTodoItems(this.showCompleted).map((item) => ({
+        name: item.task,
+        value: item.id,
+        checked: item.complete,
+      }))
+    }).then((answers) => {
+      let completedTask = answers["complete"] as number[];
+      
+      this.todoCollection.getTodoItems(true).forEach((item) => {
+        this.todoCollection.markComplete(
+          item.id, 
+          completedTask.find((id) => id === item.id) != undefined
+        )
+      })
       this.promptUser();
     })
   }
