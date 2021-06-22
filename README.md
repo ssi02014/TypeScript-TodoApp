@@ -304,4 +304,34 @@ enum LanguageCode {
 
 const code: LanguageCode = LanguageCode.korean;
 ```
+
+<br />
+
+## 👨‍💻 Union Type/Type Guard
+### 🏃‍♂️ Union Type
+- TypeScript는 타입들의 조합을 통해 새로운 타입을 정의할 수 있으며 Union Type도 그중 하나이다.
+- Union Type은 타입 선언에 하나 이상의 타입을 지정하고 해당 타입 중에 하나일 수 있음을 나타낸다.
+- Union Type의 정의는 `|` 연산자를 이용해 정의한다.
+- Union Type의 멤버 사용은 정의된 모든 타입의 공통적인 멤버들만 사용할 수 있다.
+
+<br />
+
+### 🏃‍♂️ Type Guard
+- Type Guard는 특정 영역(블록) 안에서 해당 변수의 타입을 한정시켜주는 기능이다.
+- Union Type의 정의는 각 타입이 갖는 고유 멤버는 사용할 수 없다.
+- 특정 영역에서 각 타입이 갖는 고유 멤버에 대한 사용은 Type Guard를 이용합니다.
+- Type Guard는 사용자가 정의 하거나 `number`, `string`, `boolean`, `Symbol`의 경우 `typeof` 연산자를 이용한다.
+```ts
+  let collection: number[] | string;
+  collection = 'TypeScript';
+
+  collection.split(''); //사용할 수 없음. 왜? 숫자배열은 split이라는 메서드를 갖고있기 않기 때문
+
+  //Type Guard
+  if (typeof collection === 'string') {
+    //collection이 string이라는게 true라면 이 블럭 안에서는 split 메서드를 사용할 수 있다.
+    collection.split('');
+  }
+```
+
 <br />

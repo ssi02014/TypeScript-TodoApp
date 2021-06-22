@@ -25,7 +25,7 @@ class TodoCollection {
 
   //includeComplete - true : 모든 할일 목록
   //includeComplete - false : 완료 목록은 제외한 할일 목록
-  getTodoItems(incluteComplete: boolean):TodoItem[] {
+  getTodoItems(incluteComplete: boolean): TodoItem[] {
     return [...this.itemMap.values()].filter(
       (item) => incluteComplete || !item.complete
     );
@@ -33,7 +33,7 @@ class TodoCollection {
 
   removeComplete(): void {
     this.itemMap.forEach((item) => {
-      if(item.complete) {
+      if (item.complete) {
         this.itemMap.delete(item.id);
       }
     });
