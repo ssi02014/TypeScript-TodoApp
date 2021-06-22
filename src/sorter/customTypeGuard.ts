@@ -5,9 +5,11 @@ function isString(data: string | number[]): data is string {
   return (<string>data).split !== undefined;
 }
 
-data = 'TypeScript';
-if(isString(data)) {
+// data = 'TypeScript';
+data = [1, 2, 3, 4, 5, 6, 7];
+
+if (isString(data)) {
   console.log(data.split(""));
 } else {
-  //number []
+  console.log(data.reduce((a, b) => a + b));
 }
